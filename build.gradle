@@ -21,8 +21,8 @@ ext {
             "multidex"                  : "androidx.multidex:multidex:2.0.1",
             "material3"                 : "androidx.compose.material3:material3:1.0.0",
             "core-ktx"                  : "androidx.core:core-ktx:1.8.0",
-            "lifecycle-runtime-ktx"     : "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1",
-            "activity-compose"          : "androidx.activity:activity-compose:1.7.0",
+            "lifecycle-runtime-ktx"     : "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1",
+            "activity-compose"          : "androidx.activity:activity-compose:1.5.0",
 
             "compose-ui"                : "androidx.compose.ui:ui:1.3.0",
             "compose-ui-graphics"       : "androidx.compose.ui:ui-graphics:1.3.0",

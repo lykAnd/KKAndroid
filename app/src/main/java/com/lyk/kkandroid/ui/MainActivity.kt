@@ -14,7 +14,9 @@ class MainActivity : ComponentActivity() {
             KKAndroidTheme {
                 Column {
 //                    ScrollRow()
-                    ScrollColumn()
+//                    ScrollColumn()
+                    NestedScrollRow()
+                    NestedScrollColumn()
                 }
             }
         }

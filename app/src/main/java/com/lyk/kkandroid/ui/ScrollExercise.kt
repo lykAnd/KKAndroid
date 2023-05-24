@@ -4,6 +4,7 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -33,10 +34,28 @@ import androidx.compose.ui.unit.dp
 import com.lyk.kkandroid.R
 
 @Composable
-fun ScrollRow(modifier: Modifier = Modifier) {
+fun NestedScrollRow(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
+    ) {
+        Row {
+            repeat(3) {
+                ScrollRow(
+                    modifier = Modifier
+                        .width((LocalConfiguration.current.screenWidthDp / 2).dp)
+                        .padding(horizontal = 20.dp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun ScrollRow(modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier
             .horizontalScroll(rememberScrollState())
     ) {
         repeat(50) {
@@ -46,7 +65,25 @@ fun ScrollRow(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ScrollColumn(modifier: Modifier=Modifier) {
+fun NestedScrollColumn(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .verticalScroll(rememberScrollState())
+    ) {
+        Column {
+            repeat(3) {
+                ScrollColumn(
+                    modifier = Modifier
+                        .height(LocalConfiguration.current.screenWidthDp.dp)
+                        .padding(vertical = 8.dp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun ScrollColumn(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -89,8 +126,9 @@ private fun ItemContent(name: String) {
             )
             if (expanded) {
                 Text(
-                    text = ("Composem ipsum color sit lazy, " +
-                            "padding theme elit, sed do bouncy. ").repeat(4)
+                    text = ("Composem ipsum color sit lazy, " + "padding theme elit, sed do bouncy. ").repeat(
+                        4
+                    )
                 )
             }
         }
